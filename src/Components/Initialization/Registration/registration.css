@@ -1,0 +1,86 @@
+.signup {
+    max-width: 100%;
+    max-height: 100%;
+    font-size: 15px;
+    text-align: center;
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    position: absolute;
+    top: 7%;
+    bottom: 15vh;
+    left: 5vh;
+    right: 5vh;
+}
+
+.button{
+    background: rgba(255,255,255,0.25);
+    border: 1px solid #333;
+    line-height: 1em;
+    width: 10vh;
+    height: 3vh;
+    padding: 0.5em 0.5em;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+}
+.button:hover,
+.button:focus,
+.button:active,
+.button.loading{
+    background: #333;
+    color: #fff;
+    outline: none;
+}
+
+.button.success{
+    background: #27ae60;
+    border-color: #166231;
+    color: #fff;
+}
+
+.label{
+    border-bottom: 1px solid #333;
+    display: block;
+    font-size: 1.25em;
+    margin-left: 5%;
+    margin_top: 3vh;
+    margin-right: 5%;
+    margin-bottom: 3vh;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+}
+
+.label.col-one-half{
+    float: left;
+    width: 50%;
+}
+.label.col-one-half:nth-of-type(even){
+    border-left: 1px solid #333;
+    padding-left: 0.25em;
+}
+.label input{
+    background: none;
+    border: none;
+    line-height: 1em;
+    font-weight: 300;
+    padding: 0.125em 0.25em;
+    width: 100%;
+}
+.label input:focus{
+    outline: none;
+}
+.label input:-webkit-autofill{
+    background-color: transparent !important;
+}
+.label span.label-text{
+    display: block;
+    font-size: 0.5em;
+    font-weight: bold;
+    padding-left: 0.5em;
+    text-transform: uppercase;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+}
+
+.label.invalid{border-color: #71251f !important;}
+.label.invalid span.label-text{color: #c0392b;}
+

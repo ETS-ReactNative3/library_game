@@ -1,0 +1,44 @@
+.found{
+    position: relative;
+    margin-top:28vh;
+    height: 40vh;
+    width: 50vh;
+    background: darkred;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: white;
+}
+
+.text{
+    text-align: center;
+}
+
+.icon{
+    position: relative;
+    top: -5vh;
+    margin-left: 15vh;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: white;
+    border-width: 5px;
+    width: 20vh;
+    height: 20vh;
+}
+
+.button{
+    width: 35vh;
+    background-color: #9a9a9a;
+    height: 10vh;
+    margin-left: 7vh;
+    font-size: 40px;
+    font-family: Bodoni MT Black;
+}
+
+.button:hover{
+    background-color: white;
+    color: black;
+}
+
+.link{
+    color: black;
+}

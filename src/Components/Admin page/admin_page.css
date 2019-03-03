@@ -1,0 +1,145 @@
+.base{
+    width: 65%;
+    background: #dfdfdf;
+    margin: auto;
+    background-attachment: fixed;
+}
+
+.main{
+    display: flex;
+    justify-content: space-around;
+    background-attachment: fixed;
+}
+
+.left_side{
+    width: 30%;
+}
+
+.right_side{
+    width: 70%;
+}
+
+.admin_info{
+    width: 90%;
+    height: 87vh;
+    background: darkred;
+    margin-left: 3vh;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    border-radius: 10px;
+}
+
+.other_info{
+    width: 90%;
+    background: white;
+    margin-left: 3vh;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    border-radius: 10px;
+    height: 87vh;
+}
+
+.upload_body{
+    width: 98%;
+    border-radius: 10px;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    background: darkred;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-attachment: fixed;
+}
+
+.upload_body_admin{
+    width: 98%;
+    border-radius: 10px;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-attachment: fixed;
+}
+
+.upload_questions{
+    background: white;
+    margin-left: 2vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    margin-right: 2vh;
+    overflow: scroll;
+    height: 50vh;
+    border-radius: 5px;
+}
+
+.upload_cards{
+    background: white;
+    margin-left: 2vh;
+    margin-right: 2vh;
+    margin-bottom: 3vh;
+    height: 50vh;
+    border-radius: 5px;
+    overflow: scroll;
+}
+
+.form{
+    margin-left: 2vh;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    margin-top: 2vh;
+}
+
+.table{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.set{
+    width: 90%;
+    margin-left: 3vh;
+    position:relative;
+    top: 5vh;
+}
+
+.table td{
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.table th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #8e0a05;
+    color: white;
+    border-radius: 5px;
+}
+
+.table tr:hover{
+    background-color: #ddc1bb;
+}
+
+.text1{
+    background-color: white;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.form{
+}
+
+.text{
+    font-size: 25px;
+    text-align: center;
+}
+
+.row{
+    text-align: center;
+    font-size: 20px;
+}

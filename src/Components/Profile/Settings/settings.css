@@ -1,0 +1,19 @@
+.set{
+    width: 90%;
+    margin-left: 3vh;
+    position:relative;
+    top: 5vh;
+}
+
+.form{
+}
+
+.text{
+    font-size: 25px;
+    text-align: center;
+}
+
+.row{
+    text-align: center;
+    font-size: 20px;
+ }

@@ -1,0 +1,21 @@
+.text{
+    text-align: center;
+    margin-left: 1vh;
+    font-size: 25px;
+}
+
+.image{
+    width: 20vh;
+    height: 20vh;
+    border-radius: 50%;
+}
+
+.avatar {
+    position:relative;
+    display: inline-block;
+    width: 20vh;
+    height: 20vh;
+    margin-top: 5vh;
+    margin-left: 5vh;
+    border-radius: 20px;
+}

@@ -1,0 +1,17 @@
+.base{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.box1{
+    display:inline-block;
+    width: 50vw;
+}
+
+.box2{
+    display: inline-block;
+    width: 50vw;
+}

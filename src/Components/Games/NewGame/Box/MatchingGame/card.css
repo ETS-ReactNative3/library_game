@@ -1,0 +1,18 @@
+.card{
+    width: 20vh;
+    height: 20vh;
+    margin: 2vh;
+    background-image: url("./photo.jpg");
+    justify-content: center;
+}
+
+.cardImage{
+    margin: 2vh;
+    width: 20vh;
+    height: 20vh;
+}
+
+.frame{
+    width: 20vh;
+    height: 20vh;
+}

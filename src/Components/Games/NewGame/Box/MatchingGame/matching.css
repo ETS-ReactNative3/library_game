@@ -1,0 +1,121 @@
+.foundation{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.game_base{
+    width: 65%;
+    height: 100vh;
+    background-color: white;
+    border-radius: 5px;
+}
+.left_side{
+    width: 17%;
+}
+
+.right_side{
+    width: 18%;
+}
+
+.timer{
+    border-radius: 20%;
+    width: 90%;
+    height: 20vh;
+    margin-left: 5%;
+    margin-top: 5vh;
+    background: white;
+}
+
+.score{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5vh;
+    height: 20vh;
+    border-radius: 20%;
+    background: white;
+}
+
+.bot{
+    width: 90%;
+    margin-top: 10vh;
+    height: 20vh;
+}
+
+.gif{
+    position: relative;
+    left: -4vh;
+    height: 40vh;
+    width: 40vh;
+}
+
+.leaders{
+    width: 80%;
+    height: 80vh;
+    background:white;
+    margin-left: 10%;
+    margin-top:10vh;
+}
+
+.blow{
+
+}
+
+.matching_base{
+    width: 100%;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+}
+
+.timer{
+    text-align: center;
+    font-size: 60px;
+}
+
+.question{
+    font-size: 40px;
+}
+
+.button_question{
+    font-size: 30px;
+    margin-top: 10px;
+    width: 100%;
+
+}
+.button_question:hover{
+    color: #158f16;
+}
+
+.question_main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+}
+
+.question_div{
+    width: 60%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.start{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    z-index: 1000;
+}
+.gameStarter{
+    font-size: 8vh;
+}
+.loading{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}

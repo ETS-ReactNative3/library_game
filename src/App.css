@@ -1,0 +1,45 @@
+.menu{
+    display: inline-block;
+    width: 50vh;
+    margin-top: 40vh;
+    margin-left:10vh;
+    text-align: center;
+    font-size: 70px;
+    color: yellow;
+}
+.button{
+    background-color: green;
+}
+
+.myGifDiv{
+    position:absolute;
+    width: 70vh;
+    height: 100%;
+    display: inline-block;
+}
+
+.registerDiv{
+    width: 50vh;
+    border-radius: 5px;
+    border-width: 2px;
+    height: 70vh;
+    border-color: red;
+
+}
+
+.inputStyle{
+    width: 50vh;
+    height: 70vh;
+    text-align: center;
+    font-size:20px;
+    color: yellow;
+    margin-top: 15vh;
+    margin-left: 25vh;
+}
+
+.myGif{
+    margin-left: 20vh;
+    margin-top: 18vh;
+    width: 70vh;
+    height: 70vh;
+}

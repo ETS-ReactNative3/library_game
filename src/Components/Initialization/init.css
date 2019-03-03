@@ -1,0 +1,90 @@
+.div{
+    background-color: white;
+    width: 50vh;
+    height: 80vh;
+    opacity: 0.85;
+    left: 65vh;
+    top: 5vh;
+    border-radius: 10px;
+    padding: 60px 0;
+    position: absolute;
+}
+
+.overlayV{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    right:0;
+    opacity:0.95;
+    overflow: hidden;
+    width: 50vh;
+    border-radius: 10px;
+    transition: 1.5s ease;
+    z-index: 1;
+    background-color: white;
+    height: 100%;
+    animation-name: overlayColor;
+    animation-duration: 2.5s;
+}
+
+.overlayV .topper{
+    display: block;
+}
+
+.overlayV .text:after{
+    content: "or Sign Up?";
+}
+
+@keyframes overlayColor {
+    from {background-color: #ffda09;}
+    to {background-color: white;}
+}
+
+.overlay{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    right:0;
+    opacity:0.95;
+    background-color: #ffda09;
+    overflow: hidden;
+    width: 50vh;
+    height: 7vh;
+    border-radius: 10px;
+    transition: 1.5s ease;
+    z-index: 1;
+}
+
+.text{
+    margin-top: 2vh;
+    font-size: 20px;
+    text-align: center;
+}
+
+.text:after{
+    content:"or Log In?";
+}
+
+.textV{
+    margin-top: 2vh;
+    font-size: 20px;
+    text-align: center;
+}
+
+.textV:after{
+    content:"or Sign Up?";
+}
+
+.temp{
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+.topper{
+    display: none;
+    transition-duration: 3s;
+}
