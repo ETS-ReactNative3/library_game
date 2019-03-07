@@ -33,9 +33,6 @@ class NavbarProfile extends React.Component {
                             <NavLink href="profile">Profile</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="/leader_board">Leader Board</NavLink>
-                        </NavItem>
-                        <NavItem>
                             <NavLink href="/setting">Profile Settings</NavLink>
                         </NavItem>
                     </Nav>

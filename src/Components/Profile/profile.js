@@ -43,10 +43,6 @@ class Profile extends Component{
             axios.post('/user/get_color2',{id:this.state.user})
                 .then(res=>{console.log("This is the res data for color 2 ", res.data);this.setState({colorTopper:res.data})})
                 .catch(err=>console.log(err));
-            axios.get('/user/get_users_sorted_by_points',{id:this.state.user})
-                .then(res=>{console.log("This is the list of users by order ", res.data);
-                this.setState({leaders: res.data})})
-                .catch(err=>console.log(err));
         }
     }
 
@@ -63,6 +59,15 @@ class Profile extends Component{
             console.log("=>",res);
         })
 
+    }
+    handleGetLeaders(e){
+        axios({
+            method:'get',
+            url:'/user/get_users_sorted_by_points'
+        }).then(res=>{
+            this.setState({leaders:res.data})
+            console.log("Leaders ", res.data)
+        })
     }
     handleSubmit2(){
         var dataColor2 = {
@@ -110,7 +115,6 @@ class Profile extends Component{
             const stylesObj = {
                 background: this.state.colorProfile
             };
-
             const styleObj2 = {
                 background: this.state.colorTopper
             }
@@ -133,17 +137,23 @@ class Profile extends Component{
                     <button onClick={this.handleSubmit2.bind(this)} className={classes.button}>Save changes</button>
                 </div>
             }
-            if (this.props.status === "") {
+            if (this.props.status == "") {
                 profile_body = <div className={classes.bot}>
                     <div className={classes.profile_info} style={stylesObj}>
                         <Profile_info {...(this.state)}/>
                     </div>
                     <div className={classes.topper}>
                         <div>
-                            <p className={classes.score} style={styleObj2}>Total score: Place: ... </p>
+                            <p className={classes.score} style={styleObj2}>Your score: {this.state.score.points}</p>
                         </div>
                         <div className={classes.info} style={styleObj2}>
-
+                            {this.handleGetLeaders()}
+                            <ol className={classes.listHeader}>
+                                {this.state.leaders.map((el, index)=>{
+                                        return <li key={index}>{el.name} {el.second_name} - {el.points}</li>
+                                    }
+                                )}
+                            </ol>
                         </div>
                     </div>
                 </div>
@@ -161,8 +171,6 @@ class Profile extends Component{
                         </div>
                     </div>
                 </div>
-            } else if (this.props.status === "leader_board") {
-
             }
             return (
                 <div className={classes.main}>

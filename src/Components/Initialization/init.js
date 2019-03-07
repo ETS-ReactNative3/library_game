@@ -18,11 +18,9 @@ class Init extends Component {
     }
 
     render(){
-        console.log("OKJN HBGVFGC")
-        console.log(this.props.user)
         if(this.props.status=="register") {
             return (
-                <div className={classes.div} >
+                <div className={classes.div}>
                     <div>
                         <Registration username={this.props.user}></Registration>
                     </div>
@@ -35,7 +33,6 @@ class Init extends Component {
                                     <Login className={classes.temp} username={this.props.user}></Login>
                                 </div>
                             </div>
-
                         ):null}
                     </div>
                 </div>

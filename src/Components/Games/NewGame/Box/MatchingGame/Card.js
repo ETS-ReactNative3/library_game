@@ -34,7 +34,7 @@ class Card extends Component {
     {
         console.log("I am in the cards")
         if(this.state.loaded) return <div className="card ">Loading....</div>
-        else if(this.props.openned)return <div className="card " style={this.props.styling} ref={this.getCardRef}><img className={classes.cardImage} src={this.state.source} /></div>;
+        else if(this.props.openned)return <div className={classes.card} style={this.props.styling} ref={this.getCardRef}><img className={classes.cardImage} src={this.state.source} /></div>;
         else if(this.props.found===true)return <div className={classes.frame} style={this.props.styling} ref={this.getCardRef}><img className={classes.cardImage} src={this.state.source} /></div>;
         else if(this.props.found===false) return(
             <div className={classes.card} onClick={this.clickCard.bind(this)}></div>

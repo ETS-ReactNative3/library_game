@@ -34,7 +34,7 @@ class About extends Component{
             if(localStorage.getItem(NUlibraryUser)) {
                 console.log("Logged in")
                 menuItems = <div className={classes.menu}>
-                    <Link to='/newGame' className={classes.list}>Start new game</Link>
+                    <Link to='/newGame' className={classes.list}>New game</Link>
                     <br/>
                     <Link to='/profile' className={classes.list}>Profile</Link>
                     <br/>

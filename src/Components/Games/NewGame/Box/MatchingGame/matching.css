@@ -1,5 +1,4 @@
 .foundation{
-    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
@@ -10,6 +9,7 @@
     height: 100vh;
     background-color: white;
     border-radius: 5px;
+    overflow: scroll;
 }
 .left_side{
     width: 17%;
@@ -49,6 +49,18 @@
     height: 40vh;
     width: 40vh;
 }
+@media (max-width: 1600px){
+    .gif{
+        width: 35vh;
+        height: 35vh;
+    }
+}
+@media (max-width: 1360px){
+    .gif{
+        width: 30vh;
+        height:30vh;
+    }
+}
 
 .leaders{
     width: 80%;
@@ -58,8 +70,17 @@
     margin-top:10vh;
 }
 
-.blow{
+.board{
+    text-align: center;
+    font-weight: bold;
+    max-font-size: 35px;
+    font-size: 30px;
+}
 
+.leadersList{
+    font-weight: lighter;
+    font-style: italic;
+    font-size: 25px;
 }
 
 .matching_base{
@@ -106,10 +127,7 @@
 
 .start{
     display: flex;
-    align-items: center;
     justify-content: center;
-    height: 100%;
-    z-index: 1000;
 }
 .gameStarter{
     font-size: 8vh;
@@ -118,4 +136,8 @@
     color: white;
     font-weight: bold;
     text-align: center;
+}
+.startButton{
+    text-align:center;
+    font-size: 50px;
 }

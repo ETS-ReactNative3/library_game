@@ -19,26 +19,23 @@ class AdminPage extends Component{
             user: localStorage.getItem(NUlibraryAdmin),
             admins: null,
             errors:[],
-            user:localStorage.getItem(NUlibraryUser),
             email:"",
             name:"",
             second_name:"",
             school:"",
             year:"",
-            university_id:""
+            university_id:"",
+            leaders: []
         }
         this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount(){
         if(this.state.user) {
-            console.log("BBBBBBBBBBBB")
             axios.post('/user/get_info', {id: this.state.user})
                 .then(res => {
-                    // console.log("This is the res data" + res.data);
                     this.setState(res.data)
                     if(res.data.adminType=="mainAdmin"){
-                        console.log("AAAAAAAAAAAAAA")
                         axios.post('/user/get_all_admins')
                             .then(response => {
                                 this.setState({admins: response.data});
@@ -46,8 +43,10 @@ class AdminPage extends Component{
                     }
                 })
                 .catch(err => console.log(err));
-            console.log("ADMIN")
-            console.log(this.state.adminType)
+            axios.get('/user/get_users_sorted_by_points')
+                .then(res=>{
+                    this.setState({leaders: res.data})
+                })
         }
     }
 
@@ -192,6 +191,19 @@ class AdminPage extends Component{
                     </div>
                 </div>
 
+            }
+            else if(this.props.status==="leaders"){
+                profile_body = <div className={classes.main}>
+                    <div className={classes.leaders}>
+                        <ol className={classes.listHeader}>
+                            <p>Top List</p>
+                            {this.state.leaders.map((el, index)=>{
+                                    return <li className={classes.leadersList} key={index}>{el.name} {el.second_name} - {el.email} - Points: {el.points}</li>
+                                }
+                            )}
+                        </ol>
+                    </div>
+                </div>
             }
             else if(this.props.status === "statistics"){
                 profile_body = <div className={classes.main}>

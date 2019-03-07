@@ -1,12 +1,14 @@
 .found{
-    position: relative;
+    display: flex;
+    flex-direction: column;
     margin-top:28vh;
     height: 40vh;
     width: 50vh;
-    background: darkred;
+    background: #d6b992;
     border-radius: 5px;
     border-style: solid;
-    border-color: white;
+    border-width: 5px;
+    border-color: darkred;
 }
 
 .text{
@@ -14,13 +16,11 @@
 }
 
 .icon{
+    background: darkred;
     position: relative;
     top: -5vh;
     margin-left: 15vh;
     border-radius: 50%;
-    border-style: solid;
-    border-color: white;
-    border-width: 5px;
     width: 20vh;
     height: 20vh;
 }

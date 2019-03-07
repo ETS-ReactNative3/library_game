@@ -38,6 +38,9 @@ class NavbarProfile extends React.Component {
                                 <NavLink href="/admin_control">Admin settings</NavLink>
                             </NavItem>
                             <NavItem>
+                                <NavLink href="/admin_leaders">Leader Board</NavLink>
+                            </NavItem>
+                            <NavItem>
                                 <NavLink href="/upload">Game settings</NavLink>
                             </NavItem>
                             <NavItem>
@@ -57,6 +60,9 @@ class NavbarProfile extends React.Component {
                         <Nav className="ml-auto" navbar>
                             <NavItem>
                                 <NavLink href="/admin_page">Profile</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink href="/admin_leaders">Leader Board</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink href="/upload">Game settings</NavLink>

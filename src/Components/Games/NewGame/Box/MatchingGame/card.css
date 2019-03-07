@@ -1,6 +1,6 @@
 .card{
-    width: 20vh;
-    height: 20vh;
+    width: 19vh;
+    height: 19vh;
     margin: 2vh;
     background-image: url("./photo.jpg");
     justify-content: center;
@@ -15,4 +15,18 @@
 .frame{
     width: 20vh;
     height: 20vh;
+}
+
+@media(max-width: 1440px) and (min-width: 1000px){
+    .card{
+        width: 15vh;
+        height: 15vh;
+    }
+}
+
+@media(max-width: 500px) and (min-width: 300px){
+    .card{
+        width: 10vh;
+        height: 10vh;
+    }
 }

@@ -26,6 +26,7 @@ class App extends Component {
                     <Route path="/questionnaire" render={(props) => <Questioning/>}/>
                     <Route path="/admin" render={(props) => <Init status="login" user="Admin"/>}/>
                     <Route path="/admin_page" render={(props) => <AdminPage status=""/>}/>
+                    <Route path="/admin_leaders" render={(props) => <AdminPage status="leaders"/>}/>
                     <Route path="/admin_control" render={(props) => <AdminPage status="adminControl"/>}/>
                     <Route path="/upload" render={(props) => <AdminPage status="upload"/>}/>
                     <Route path="/statistics" render={(props) => <AdminPage status="statistics"/>}/>

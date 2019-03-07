@@ -122,11 +122,16 @@ class Questionnaire extends Component{
             )
         }
         else if(this.state.game_status==="finished"){
+            console.log(this.state.game_body)
             return(
                 <ReactModal isOpen={this.state.isOpen} ariaHideApp={false} className={classes.start2}>
+                    <p className={classes.text}>Correct answers:</p>
+                    <ul className={classes.text}>
+                        {this.state.game_body.correctly_answered.map(questions=><li className={classes.li1}>{questions.question}</li>)}
+                    </ul>
                     <p className={classes.text}>Incorrect answers:</p>
                     <ul className={classes.list}>
-                        {this.state.game_body.answered.map(questions=><li>{questions.question}</li>)}
+                        {this.state.game_body.answered.map(questions=><li className={classes.li2}>{questions.question}</li>)}
                     </ul>
                     <Button onClick={this.handleStartGame.bind(this)}>Start new game</Button>
                     <Button><Link to="/" className={classes.link}>Back to the main menu</Link></Button>

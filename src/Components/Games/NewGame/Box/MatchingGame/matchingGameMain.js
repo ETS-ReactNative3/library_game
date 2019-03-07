@@ -16,29 +16,14 @@ class MatchingGame extends Component{
             user: localStorage.getItem(NUlibraryUser),
             loaded:false,
             imageLoaded: false,
-            endGame: true
+            endGame: true,
+            leaders:[]
         }
         this.handleCardClick = this.handleCardClick.bind(this);
         this.handleFinishGame = this.handleFinishGame.bind(this);
         this.timeoutAlert = this.timeoutAlert.bind(this);
     }
     componentWillMount(){
-        // console.log("ME THERE")
-        // axios({
-        //     method:'get',
-        //     url:"/game/5b4e2de2fb6fc069480ddf54/get_game_status",
-        //     time:true
-        // }).then(res=>{
-        //     console.log("RES IS",res)
-        //     if(res.data==="empty")this.setState({loaded:true,button:"Start game"});
-        //     else {
-        //         if(res.data === "timeout"){
-        //             this.setState({loaded:true,button:"Timeout"});
-        //         }
-        //         else this.setState({loaded:true,button:"Continue game"});
-        //
-        //     }
-        // })
         if(this.state.remaining<=0){
             this.setState({loaded:true, button: "Timeout", endGame: true});
         }
@@ -82,7 +67,6 @@ class MatchingGame extends Component{
         )
     }
     handleLoadGame(e){
-        // console.log("I am in the function")
         axios({
             method:'get',
             url:"/game/5b4e2de2fb6fc069480ddf54/load",
@@ -92,12 +76,22 @@ class MatchingGame extends Component{
             console.log("KJMMKJNHBGVFCBHNJ")
             console.log(this.state.game)
         })
+        {this.handleGetLeaders()}
     }
 
     handleStartGame(e){
         this.setState({remaining: 120, imageLoaded: true, endGame: false})
     }
 
+    handleGetLeaders(e){
+        axios({
+            method:'get',
+            url:'/user/get_users_sorted_by_points',
+        }).then(res=>{
+            this.setState({leaders:res.data})
+            console.log("Leaders ", res.data)
+        })
+    }
     handleFinishGame(e){
         axios({
             method:'get',
@@ -123,11 +117,10 @@ class MatchingGame extends Component{
         }
         else if (this.state.game.status==="loaded")
         {
-            // console.log("Now game is in this status ", this.state.game)
             return (
                 <div>
                     <ReactModal isOpen={this.state.endGame}>
-                        <h1 onClick={this.handleStartGame.bind(this)}>Start</h1>
+                        <h1 onClick={this.handleStartGame.bind(this)} className={classes.startButton}>Start</h1>
                     </ReactModal>
                     <div className={classes.foundation}>
                         <div className={classes.left_side}>
@@ -157,6 +150,12 @@ class MatchingGame extends Component{
                         <div className={classes.right_side}>
                             <div className={classes.leaders}>
                                 <p className={classes.board}>Leader Board</p>
+                                <ul>
+                                    {this.state.leaders.map((el, index)=>{
+                                        return <li className={classes.leadersList} key={index}>{el.points} - {el.name} {el.second_name}</li>
+                                    }
+                                    )}
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -215,11 +214,13 @@ class Question extends Component{
             </ReactModal>
     }
 }
+
 class GameEnded extends Component{
     render(){
-        return <div className={classes.start}><Button onClick={this.props.handleFinishGame} className={classes.gameStarter}>Finish game</Button></div>
+        return <div className={classes.start}><Button onClick={this.props.handleFinishGame}>Finish game</Button></div>
     }
 }
+
 class GameContainer extends Component{
     constructor(props){
         super(props)

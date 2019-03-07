@@ -1,19 +1,49 @@
+.main{
+    height: 100vh;
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+.men{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.myGifDiv{
+    width: 50%;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+.myGif{
+    /*margin-left: 20vh;*/
+    /*margin-top: 18vh;*/
+    width: 70vh;
+    height: 70vh;
+}
+/*.up{*/
+    /*background-color: #cacaca;*/
+/*}*/
 .menu{
     width: 50vh;
-    margin-top: 40vh;
-    margin-left:10vh;
+    /*margin-top: 40vh;*/
+    /*margin-left:10vh;*/
     text-align: center;
-    font-size: 70px;
-    color: yellow;
+}
+.list{
+    font-weight: bold;
+    font: 300 100px/1.3 'Arizonia', Helvetica, sans-serif;
+    color: #fff2d5;
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+}
+
+.list:hover{
+    color: #ffc71f;
+    text-decoration: none;
 }
 .button{
     background-color: green;
-}
-
-.myGifDiv{
-    position: relative;
-    left: -20vh;
-    width: 50%;
 }
 
 .registerDiv{
@@ -35,29 +65,6 @@
     margin-left: 25vh;
 }
 
-.myGif{
-    margin-left: 20vh;
-    margin-top: 18vh;
-    width: 70vh;
-    height: 70vh;
-}
-
-.list{
-    font: 300 75px/1.3 'Arizonia', Helvetica, sans-serif;
-    color: #2b2b2b;
-    text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
-}
-
-.list:hover{
-    color: #ffc71f;
-    text-decoration: none;
-}
-
-.men{
-    position: relative;
-    width: 50%;
-}
-
 .paper{
     position: relative;
     top: 25vh;
@@ -66,11 +73,11 @@
     left: 5vh;
 }
 
-.up{
-    position: relative;
-    background-color: #cacaca;
-}
-
-.main{
-    display: flex;
+@media (max-width: 900px){
+    .men{
+        width: 100%;
+    }
+    .myGifDiv{
+        display: none;
+    }
 }
