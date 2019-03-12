@@ -15,14 +15,14 @@ class Registration extends Component {
 
         this.state = {
             isLoading: false,
-            name: "test",
-            second_name: "test",
-            email: "test@mail.ru",
-            password: "test",
-            password2: "test",
+            name: "",
+            second_name: "",
+            email: "",
+            password: "",
+            password2: "",
             confirmationCode: "",
             newUser: null,
-            university_id: "1"
+            university_id: ""
         };
     }
 

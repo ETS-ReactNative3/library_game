@@ -47,9 +47,13 @@ class Init extends Component {
                     <div className={this.state.hover? classes.overlayV:classes.overlay}>
                         <div className={this.state.hover? classes.text:classes.textV}  onClick ={this.styleChange.bind(this)}></div>
                         <br/>
-                        <div className={classes.topper}>
-                            <Registration className={classes.temp} username={this.props.user}></Registration>
-                        </div>
+                        {this.state.hover? (
+                            <div>
+                                <div className={classes.topper}>
+                                    <Registration className={classes.temp} username={this.props.user}></Registration>
+                                </div>
+                            </div>
+                        ):null}
                     </div>
                 </div>
             );

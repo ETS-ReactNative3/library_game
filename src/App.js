@@ -16,7 +16,7 @@ class App extends Component {
                 <Router>
                 <div>
                     <Route exact path="/" render={(props) => <About/>}/>
-                    <Route path="/register" render={(props) => <Init status="register" user="Admin"/>}/>
+                    <Route path="/register" render={(props) => <Init status="register" user="User"/>}/>
                     <Route path="/newgame" render={(props) => <NewGame/>}/>
                     <Route path="/profile" render={(props) => <Profile status=""/>}/>
                     <Route path="/setting" render={(props) => <Profile status="setting"/>}/>
