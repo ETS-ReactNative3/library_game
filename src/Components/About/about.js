@@ -4,7 +4,7 @@ import {NUlibraryUser} from "../../config";
 import gif from '../../gif.gif'
 import { Link } from 'react-router-dom'
 import {NUlibraryAdmin} from "../../configAdmin";
-import jpg from './paper.jpg'
+import Sound from "react-sound";
 
 class About extends Component{
     constructor(props) {
@@ -43,6 +43,8 @@ class About extends Component{
             }
             else if(localStorage.getItem(NUlibraryAdmin)){
                 menuItems = <div className={classes.menu}>
+                    <Link to='/newGame' className={classes.list}>New game</Link>
+                    <br/>
                     <Link to='/admin_page' className={classes.list}>Profile</Link>
                     <br/>
                     <Link to='/login' onClick={this.logOut.bind(this)} className={classes.list}>Log out</Link>
@@ -59,8 +61,13 @@ class About extends Component{
         }
         return(
             <div className={classes.main}>
+                <Sound
+                    url="/back_sound.mp3"
+                    playStatus={Sound.status.PLAYING}
+                    volume = {50}
+                    autoLoad = {true}
+                />
                 <div className={classes.men}>
-                    {/*<img className={classes.paper} src={jpg}/>*/}
                     <div className={classes.up}>{menuItems}</div>
                 </div>
                 <div className={classes.myGifDiv}><img className={classes.myGif} src={gif}/></div>

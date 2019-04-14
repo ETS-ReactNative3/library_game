@@ -10,7 +10,7 @@ import {  Redirect } from 'react-router'
 import Statistics from './statistics.js'
 import Profile_info from './profile_info'
 import axios from "axios/index";
-import Questionnaire from "../Games/NewGame/Box/Questionnaire/questionnaire";
+import Sound from "react-sound";
 
 class AdminPage extends Component{
     constructor(props){
@@ -240,6 +240,12 @@ class AdminPage extends Component{
             }
             return (
                 <div className={classes.base}>
+                    <Sound
+                        url="/back_sound.mp3"
+                        playStatus={Sound.status.PLAYING}
+                        volume = {50}
+                        autoLoad = {true}
+                    />
                     <Navbar userType={this.state.adminType}></Navbar>
                     {profile_body}
                 </div>

@@ -120,7 +120,7 @@ class MatchingGame extends Component{
             return (
                 <div>
                     <ReactModal isOpen={this.state.endGame}>
-                        <h1 onClick={this.handleStartGame.bind(this)} className={classes.startButton}>Start</h1>
+                        <Button onClick={this.handleStartGame.bind(this)} className={classes.startButton}>Start</Button>
                     </ReactModal>
                     <div className={classes.foundation}>
                         <div className={classes.left_side}>

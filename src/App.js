@@ -10,28 +10,34 @@ import Matching from './Components/Games/NewGame/Box/MatchingGame/matchingGameMa
 import AdminPage from "./Components/Admin page/admin_profile"
 
 class App extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            playing: true
+        }
+    }
     render() {
         return (
             <div>
                 <Router>
-                <div>
-                    <Route exact path="/" render={(props) => <About/>}/>
-                    <Route path="/register" render={(props) => <Init status="register" user="User"/>}/>
-                    <Route path="/newgame" render={(props) => <NewGame/>}/>
-                    <Route path="/profile" render={(props) => <Profile status=""/>}/>
-                    <Route path="/setting" render={(props) => <Profile status="setting"/>}/>
-                    <Route path="/login" render={(props) => <Init status="login" user="User"/>}/>
-                    <Route path="/leader_board" render={(props) => <Init status="leader_board"/>}/>
-                    <Route path="/matching_game" render={(props) => <Matching/>}/>
-                    <Route path="/questionnaire" render={(props) => <Questioning/>}/>
-                    <Route path="/admin" render={(props) => <Init status="login" user="Admin"/>}/>
-                    <Route path="/admin_page" render={(props) => <AdminPage status=""/>}/>
-                    <Route path="/admin_leaders" render={(props) => <AdminPage status="leaders"/>}/>
-                    <Route path="/admin_control" render={(props) => <AdminPage status="adminControl"/>}/>
-                    <Route path="/upload" render={(props) => <AdminPage status="upload"/>}/>
-                    <Route path="/statistics" render={(props) => <AdminPage status="statistics"/>}/>
-                </div>
-            </Router>
+                    <div>
+                        <Route exact path="/" render={(props) => <About/>}/>
+                        <Route path="/register" render={(props) => <Init status="register" user="User"/>}/>
+                        <Route path="/newgame" render={(props) => <NewGame/>}/>
+                        <Route path="/profile" render={(props) => <Profile status=""/>}/>
+                        <Route path="/setting" render={(props) => <Profile status="setting"/>}/>
+                        <Route path="/login" render={(props) => <Init status="login" user="User"/>}/>
+                        <Route path="/leader_board" render={(props) => <Init status="leader_board"/>}/>
+                        <Route path="/matching_game" render={(props) => <Matching/>}/>
+                        <Route path="/questionnaire" render={(props) => <Questioning/>}/>
+                        <Route path="/admin" render={(props) => <Init status="login" user="Admin"/>}/>
+                        <Route path="/admin_page" render={(props) => <AdminPage status=""/>}/>
+                        <Route path="/admin_leaders" render={(props) => <AdminPage status="leaders"/>}/>
+                        <Route path="/admin_control" render={(props) => <AdminPage status="adminControl"/>}/>
+                        <Route path="/upload" render={(props) => <AdminPage status="upload"/>}/>
+                        <Route path="/statistics" render={(props) => <AdminPage status="statistics"/>}/>
+                    </div>
+                </Router>
             </div>
         )
     }

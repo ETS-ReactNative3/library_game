@@ -4,10 +4,9 @@ import {
     FormControl,
     ControlLabel
 } from "react-bootstrap";
-// import LoaderButton from "../components/LoaderButton";
 import classes from "./registration.css";
-import Login from "../Login/login";
 import axios from "axios/index";
+import {Redirect} from 'react-router'
 
 class Registration extends Component {
     constructor(props) {
@@ -15,6 +14,7 @@ class Registration extends Component {
 
         this.state = {
             isLoading: false,
+            isRegistered: false,
             name: "",
             second_name: "",
             email: "",
@@ -67,7 +67,10 @@ class Registration extends Component {
             method: "post",
             url: '/user/register',
             data: dataForm
-        }).then(res=>{console.log(res)})
+        }).then(res=>{
+            console.log(res)
+            this.setState({isRegistered: true})
+        })
     }
 
     renderForm() {
@@ -140,12 +143,17 @@ class Registration extends Component {
     }
 
     render() {
-        return (
-            <div>
-                {this.state.newUser === null}
-                {this.renderForm()}
-            </div>
-        );
+        if(this.state.isRegistered){
+            return <Redirect to = "/"/>
+        }
+        else {
+            return (
+                <div>
+                    {this.state.newUser === null}
+                    {this.renderForm()}
+                </div>
+            );
+        }
     }
 }
 

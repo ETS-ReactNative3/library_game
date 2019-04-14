@@ -15,7 +15,11 @@ class card extends Component {
     loadData() {
         // console.log("This is our current user")
         // console.log(this.state.user)
-        axios.post('/user/get_user_points',{id:this.state.user}).then(res=>this.setState(res.data));
+        axios.post('/user/get_user_points',{id:this.state.user}).then(res=> {
+                console.log(res.data)
+                this.setState(res.data)
+            }
+        );
     }
     componentWillUnmount() {
         clearInterval(this.intervalId);

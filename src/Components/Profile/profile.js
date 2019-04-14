@@ -9,6 +9,7 @@ import {NUlibraryUser} from "../../config";
 import { SwatchesPicker } from 'react-color';
 import {NUlibraryAdmin} from "../../configAdmin";
 import {  Redirect } from 'react-router'
+import Sound from "react-sound";
 
 class Profile extends Component{
     constructor(props) {
@@ -174,6 +175,12 @@ class Profile extends Component{
             }
             return (
                 <div className={classes.main}>
+                    <Sound
+                        url="/back_sound.mp3"
+                        playStatus={Sound.status.PLAYING}
+                        volume = {50}
+                        autoLoad = {true}
+                    />
                     <NavbarProfile/>
                     {profile_body}
                 </div>
