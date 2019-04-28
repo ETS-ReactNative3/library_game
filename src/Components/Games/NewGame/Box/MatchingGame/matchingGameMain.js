@@ -38,13 +38,13 @@ class MatchingGame extends Component{
     }
     CloseQuestion(res){
         // console.log(res);
-        this.setState({game:res.data,question:null,answers:null});
+        this.setState({game:res.data,question:null,answers:null,clickedCard:false});
         this.forceUpdate();
     }
     handleCardClick(index){
         // console.log("CLICKED");
         if(this.state.clickedCard===true){
-            // console.log("CLICKED ALREADY");
+            console.log("CLICKED ALREADY");
             return ;
         }
         this.setState({clickedCard:true})

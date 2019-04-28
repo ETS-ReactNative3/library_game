@@ -1,12 +1,12 @@
 .div{
     background-color: white;
-    width: 50vh;
-    height: 80vh;
+    width: 27vw;
+    min-height: 85vh;
     opacity: 0.85;
     left: 65vh;
     top: 5vh;
     border-radius: 10px;
-    padding: 60px 0;
+    padding: 20px;
     position: absolute;
 }
 
@@ -17,12 +17,12 @@
     right:0;
     opacity:0.95;
     overflow: hidden;
-    width: 50vh;
+    width: 27vw;
     border-radius: 10px;
     transition: 1.5s ease;
     z-index: 1;
     background-color: white;
-    height: 100%;
+    min-height: 100%;
     animation-name: overlayColor;
     animation-duration: 2.5s;
 }
@@ -48,7 +48,7 @@
     opacity:0.95;
     background-color: #ffda09;
     overflow: hidden;
-    width: 50vh;
+    width: 27vw;
     height: 7vh;
     border-radius: 10px;
     transition: 1.5s ease;

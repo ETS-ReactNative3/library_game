@@ -22,7 +22,10 @@ class Registration extends Component {
             password2: "",
             confirmationCode: "",
             newUser: null,
-            university_id: ""
+            university_id: "",
+            errors: [],
+            errState: false,
+            cancelBut: false
         };
     }
 
@@ -70,8 +73,15 @@ class Registration extends Component {
         }).then(res=>{
             console.log(res)
             this.setState({isRegistered: true})
+            this.setState({errState: false})
+        }).catch(err=>{
+            console.log("Errors: ", err.response.data);
+            this.setState({errors: err.response.data})
+            this.setState({errState: true})
+            console.log("errors 0: ", this.state.errors.errors[0])
         })
     }
+
 
     renderForm() {
         return (
@@ -86,6 +96,7 @@ class Registration extends Component {
                         onChange={this.handleChange}
                     />
                 </FormGroup>
+                <p className={classes.errorText}>{this.state.errState ? this.state.errors.errors[1]:""}</p>
                 <FormGroup controlId="second_name" bsSize="large" className={classes.label}>
                     <ControlLabel>Second Name</ControlLabel>
                     <br/>
@@ -96,6 +107,7 @@ class Registration extends Component {
                         onChange={this.handleChange}
                     />
                 </FormGroup>
+                <p className={classes.errorText}>{this.state.errState ? this.state.errors.errors[2]:""}</p>
                 <FormGroup controlId="university_id" bsSize="large" className={classes.label}>
                     <ControlLabel>ID</ControlLabel>
                     <br/>
@@ -116,6 +128,7 @@ class Registration extends Component {
                         onChange={this.handleChange}
                     />
                 </FormGroup>
+                <p className={classes.errorText}>{this.state.errState ? this.state.errors.errors[0]:""}</p>
                 <FormGroup controlId="password" bsSize="large" className={classes.label}>
                     <ControlLabel>Password</ControlLabel>
                     <br/>
@@ -126,6 +139,7 @@ class Registration extends Component {
                         type="password"
                     />
                 </FormGroup>
+                <p className={classes.errorText}>{this.state.errState ? this.state.errors.errors[4]:""}</p>
                 <FormGroup controlId="password2" bsSize="large" className={classes.label}>
                     <ControlLabel>Confirm Password</ControlLabel>
                     <br/>
@@ -136,6 +150,7 @@ class Registration extends Component {
                         type="password"
                     />
                 </FormGroup>
+                <p className={classes.errorText}>{this.state.errState ? this.state.errors.errors[3]:""}</p>
                 <button className={classes.button}>Cancel</button>
                 <button className={classes.button}>Register</button>
             </form>
@@ -143,7 +158,7 @@ class Registration extends Component {
     }
 
     render() {
-        if(this.state.isRegistered){
+        if((this.state.isRegistered)||(this.state.cancelBut)){
             return <Redirect to = "/"/>
         }
         else {
