@@ -9,22 +9,18 @@ class card extends Component {
         this.state={user:localStorage.getItem(NUlibraryUser)};
         this.loadData= this.loadData.bind(this);
     }
-    componentDidMount() {
-        this.intervalId=setInterval(()=>this.loadData(),1000);
-    }
+
     loadData() {
-        // console.log("This is our current user")
-        // console.log(this.state.user)
         axios.post('/user/get_user_points',{id:this.state.user}).then(res=> {
-                console.log(res.data)
-                this.setState(res.data)
+                this.setState(res.data);
+                this.props.setUpdatePointsTo(false);
             }
         );
     }
-    componentWillUnmount() {
-        clearInterval(this.intervalId);
-    }
     render() {
+        if(this.props.toUpdate){
+            this.loadData();
+        }
         return <div className={classes.timer}>
             Score:
             <br/>

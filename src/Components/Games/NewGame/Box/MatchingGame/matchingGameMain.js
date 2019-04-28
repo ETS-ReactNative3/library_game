@@ -30,24 +30,22 @@ class MatchingGame extends Component{
         else this.setState({loaded: true, button: "Continue game"});
     }
     AlertQuestion(text,res){
-	    // console.log(localStorage.getItem(NUlibraryUser));
         axios.post('/user/add_points',{userID:localStorage.getItem(NUlibraryUser),points:1});
-        console.log("The text is ", text);
         this.setState({question:text.question, answers:text.answers, idd:text.idd, correct: text.correctAnswer},this.CloseQuestion(res));
 
     }
     CloseQuestion(res){
-        // console.log(res);
         this.setState({game:res.data,question:null,answers:null,clickedCard:false});
-        this.forceUpdate();
+        // this.forceUpdate();
+    }
+    setUpdatePointsTo(val){
+        this.setState({getPoints: val});
     }
     handleCardClick(index){
-        // console.log("CLICKED");
         if(this.state.clickedCard===true){
-            console.log("CLICKED ALREADY");
             return ;
         }
-        this.setState({clickedCard:true})
+        this.setState({clickedCard:true});
         axios("/game/5b4e2de2fb6fc069480ddf54/open_card", {
             method: "post",
             data: {index:index},
@@ -55,13 +53,11 @@ class MatchingGame extends Component{
         }).then(res=>
             {
                 if(this.state.game.found.length !== res.data.found.length || res.data.status === "completed"){
-                    console.log("Battlefield is ", res.data.battlefield[res.data.found[res.data.found.length -1]])
                     this.AlertQuestion(res.data.battlefield[res.data.found[res.data.found.length -1]],res);
                 }
                 else{
                     this.setState({game:res.data,clickedCard:false});
-                    this.forceUpdate();
-                    // console.log(this.state.game)
+                    this.setUpdatePointsTo(true);
                     }
             }
         )
@@ -71,10 +67,8 @@ class MatchingGame extends Component{
             method:'get',
             url:"/game/5b4e2de2fb6fc069480ddf54/load",
         }).then(res=> {
-            console.log("Loading 2")
-            this.setState({game:res.data})
-            console.log("KJMMKJNHBGVFCBHNJ")
-            console.log(this.state.game)
+            this.setState({game:res.data});
+            this.setUpdatePointsTo(true);
         })
         {this.handleGetLeaders()}
     }
@@ -103,13 +97,11 @@ class MatchingGame extends Component{
         });
     }
     timeoutAlert(){
-        console.log("ALERT")
         axios.get("/game/5b4e2de2fb6fc069480ddf54/timeout");
         this.setState({game:{status:"timeout"}});
     }
     render()
     {
-        console.log("mkbv", this.state)
         if(!this.state.loaded)return <div><h1 className={classes.loading}>Loading...</h1></div>
         else if(!this.state.game){
             {this.handleLoadGame()}
@@ -133,7 +125,7 @@ class MatchingGame extends Component{
                                 </div>
                             </div>
                             <div className={classes.score}>
-                                <Live_point_screening />
+                                <Live_point_screening setUpdatePointsTo={this.setUpdatePointsTo.bind(this)} toUpdate={this.state.getPoints}/>
                             </div>
                             <div className={classes.bot}>
                                 <img src={gif} className={classes.gif}/>

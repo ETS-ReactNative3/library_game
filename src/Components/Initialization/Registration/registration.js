@@ -151,8 +151,8 @@ class Registration extends Component {
                     />
                 </FormGroup>
                 <p className={classes.errorText}>{this.state.errState ? this.state.errors.errors[3]:""}</p>
-                <button className={classes.button}>Cancel</button>
-                <button className={classes.button}>Register</button>
+                <button className={classes.button} onClick={e=>this.setState({cancelBut:true})}>Cancel</button>
+                <button className={classes.button} type="submit">Register</button>
             </form>
         );
     }

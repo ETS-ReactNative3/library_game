@@ -19,7 +19,8 @@ class Login extends Component{
             email: "admin@mail.ru",
             password: "admin",
             activeUser: true,
-            user: null
+            user: null,
+            cancelClicked:false
         };
     }
 
@@ -59,8 +60,8 @@ class Login extends Component{
                     this.setState({activeUser: false})
                 }
             }
-        })
-    }
+        }).catch(err=>this.setState({error:"User is not found"}));
+    };
 
     renderForm() {
         return (
@@ -86,21 +87,22 @@ class Login extends Component{
                         type="password"
                     />
                 </FormGroup>
-                <button className={classes.button}>Cancel</button>
+                <p className={classes.errorText}>{this.state.error ? this.state.error:""}</p>
+
+                <button className={classes.button} onClick={e=>this.setState({cancelClicked:true})}>Cancel</button>
                 <input type="submit" className={classes.button} value="Login"/>
             </form>
         );
     }
 
     render(){
-        console.log(this.state.isLogged)
+        console.log(this.state.isLogged);
         if(this.state.isLogged===true){
-            console.log("Redirecting to about")
+            console.log("Redirecting to about");
             return <Redirect to = "/"/>
         }
         else {
-            if(this.state.activeUser===false){
-                console.log("Redirecting to not")
+            if(this.state.activeUser===false || this.state.cancelClicked){
                 return <Redirect to ="/"/>
             }
             else {
