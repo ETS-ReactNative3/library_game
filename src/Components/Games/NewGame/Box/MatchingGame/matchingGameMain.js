@@ -69,7 +69,7 @@ class MatchingGame extends Component{
         }).then(res=> {
             this.setState({game:res.data});
             this.setUpdatePointsTo(true);
-        })
+        });
         {this.handleGetLeaders()}
     }
 
@@ -92,7 +92,13 @@ class MatchingGame extends Component{
             url:"/game/5b4e2de2fb6fc069480ddf54/finish_game",
         }).then(res=> {
             console.log(res.data);
-            this.setState({loaded:true,button:"Start game",game:null, endGame: true});
+            this.setState({
+                loaded:true,
+                button:"Start game",
+                game:null,
+                endGame: true,
+                question:null
+            });
             this.forceUpdate();
         });
     }

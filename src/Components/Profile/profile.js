@@ -110,7 +110,6 @@ class Profile extends Component{
 
     render() {
         if(localStorage.getItem(NUlibraryUser)) {
-            console.log("User", this.state.user)
             var set_body = null
             var button_body = null
             const stylesObj = {
@@ -122,7 +121,7 @@ class Profile extends Component{
             var profile_body = null
             if (this.state.setting === "set") {
                 button_body = "Change Color"
-                set_body = <Settings/>
+                set_body = <Settings {...this.state}/>
             } else if (this.state.setting === "colorChanger") {
                 button_body = "Return to privacy settings"
                 set_body = <div className={classes.set}>

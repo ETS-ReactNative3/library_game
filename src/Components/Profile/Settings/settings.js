@@ -15,7 +15,10 @@ class Settings extends Component{
             second_name:"",
             school:"",
             year:"",
-            university_id:""
+            university_id:"",
+            old_password:"",
+            new_password:"",
+            confirmation:''
         }
         this.handleChange = this.handleChange.bind(this);
     }
@@ -25,7 +28,6 @@ class Settings extends Component{
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-
         this.setState({
             [name]: value
         });
@@ -52,7 +54,12 @@ class Settings extends Component{
                 }
             })
     }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+       if(this.props && this.props._id !== this.state._id){
+           this.setState({...prevProps,old_password:'',new_password:'',confirmation:'',});
+       }
 
+    }
     render(){
         const errors = this.state.errors;
         return (
@@ -90,12 +97,6 @@ class Settings extends Component{
                         <Label className={classes.label}>School</Label>
                         <Col className={classes.col}>
                             <Input   id="" className={classes.input} type="text" name="school" value={this.state.school} onChange={this.handleChange} />
-                        </Col>
-                    </div>
-                    <div className={classes.row}>
-                        <Label className={classes.label}>Year</Label>
-                        <Col className={classes.col}>
-                            <Input  id="" className={classes.input} type="text" name="year" value={this.state.year} onChange={this.handleChange} />
                         </Col>
                     </div>
                     <div className={classes.row}>
